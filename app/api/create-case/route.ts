@@ -23,19 +23,20 @@ type VaaniCreateCaseResponse = VaaniCreateCaseSuccess | VaaniCreateCaseFailure;
 //   • Vercel production         → https://your-app.vercel.app
 //   • Any custom domain         → https://resolvex.example.com
 function deriveBaseUrl(request: NextRequest): string {
-  // Prefer the explicit env var if set (e.g., in .env.local or Vercel env)
+  // Prefer explicit env var if set
   if (process.env.NEXT_PUBLIC_APP_URL) {
     return process.env.NEXT_PUBLIC_APP_URL.replace(/\/$/, "");
   }
 
-  // Fallback: reconstruct from request headers (works behind Vercel's proxy)
+  // Fallback: reconstruct from request headers (Vercel proxy headers)
   const proto =
     request.headers.get("x-forwarded-proto") ??
-    (request.nextUrl.protocol.replace(":", "") || "http");
+    (request.nextUrl.protocol.replace(":", "") || "https");
   const host =
     request.headers.get("x-forwarded-host") ??
     request.headers.get("host") ??
-    request.nextUrl.host;
+    request.nextUrl.host ||
+    "resolvex-three.vercel.app";
 
   return `${proto}://${host}`;
 }

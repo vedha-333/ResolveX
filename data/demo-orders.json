@@ -1,0 +1,25 @@
+[
+  {
+    "orderId": "ORD-1001",
+    "product": "Wireless Headset",
+    "price": 1499,
+    "status": "DELIVERED",
+    "phone": "9876543210"
+  },
+  {
+    "orderId": "ORD-1002",
+    "product": "Smart Watch",
+    "price": 2499,
+    "status": "IN_TRANSIT",
+    "expectedDelivery": "2026-11-02",
+    "phone": "9876543211"
+  },
+  {
+    "orderId": "ORD-1003",
+    "product": "Cotton T-Shirt",
+    "price": 499,
+    "status": "DELIVERED",
+    "phone": "9876543212"
+  }
+]
+

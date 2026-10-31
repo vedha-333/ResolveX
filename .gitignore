@@ -1,0 +1,21 @@
+# Next.js
+.next/
+out/
+
+# Production build
+build/
+
+# Node
+node_modules/
+
+# Environment variables
+.env.local
+.env
+
+# Uploaded evidence files
+public/uploads/
+
+# OS
+.DS_Store
+Thumbs.db
+

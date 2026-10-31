@@ -33,9 +33,9 @@ function deriveBaseUrl(request: NextRequest): string {
     request.headers.get("x-forwarded-proto") ??
     (request.nextUrl.protocol.replace(":", "") || "https");
   const host =
-    request.headers.get("x-forwarded-host") ??
+    (request.headers.get("x-forwarded-host") ??
     request.headers.get("host") ??
-    request.nextUrl.host ||
+    request.nextUrl.host) ||
     "resolvex-three.vercel.app";
 
   return `${proto}://${host}`;
